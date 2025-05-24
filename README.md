@@ -1,0 +1,6 @@
+The write-up summarizes how I as part of a three-person team approached and completed a semester-ending Capture-the-Flag exercise on 20 April 2025 for CSCI 6542 in George Washington University.
+Game plan: They mapped their workflow to the cyber kill chain—reconnaissance, foothold, escalation, propagation, foraging and limited pre-game activity to port-scanning the subnet as required by the rules.
+Execution: Initial access came from exploiting MS08-067 on four Windows Server 2003 hosts. They then pivoted through those systems, used PsExec for credential-based lateral movement, and abused an Icecast header overflow where reachable.
+Findings: Across three internal subnets they discovered 22 hosts, captured five designated “trophies” (sensitive files and a domain hash-dump), and forged a Kerberos golden ticket using the krbtgt NTLM hash from the domain controller.
+Defence advice: The report outlines detection tactics (Nmap/Nessus scans, Snort/Sysmon rules, log monitoring) and remediation steps (apply KB958644, upgrade Icecast, disable SMB v1, segment networks, enforce LAPS and Credential Guard).
+Key takeaway: Meticulous planning, clear task division, and persistence were more decisive than any single exploit; the exercise reinforced practical skills in Metasploit, hash reuse, and golden-ticket creation.
